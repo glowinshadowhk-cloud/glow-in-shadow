@@ -166,7 +166,6 @@ h1 {
 }
 
 .quiz__intro,
-.quiz-form,
 .quiz-result {
   border: 1px solid rgba(225, 229, 238, 0.88);
   border-radius: 8px;
@@ -197,45 +196,67 @@ h1 {
   display: grid;
   gap: 14px;
   margin-top: 14px;
-  padding: 18px;
+  border: 1px solid rgba(225, 229, 238, 0.18);
+  border-radius: 8px;
+  padding: 16px;
+  background:
+    linear-gradient(180deg, rgba(62, 68, 84, 0.96), rgba(44, 62, 80, 0.98)),
+    var(--deep);
+  box-shadow: 0 22px 60px rgba(17, 26, 36, 0.22);
 }
 
 .quiz-question {
   display: grid;
   gap: 10px;
   margin: 0;
-  border: 1px solid rgba(225, 229, 238, 0.9);
+  border: 1px solid rgba(225, 229, 238, 0.14);
   border-radius: 8px;
   padding: 18px;
-  background: var(--white);
+  background: rgba(245, 246, 253, 0.055);
 }
 
 .quiz-question legend {
-  padding: 0 4px;
-  color: var(--ink);
-  font-size: 18px;
+  float: left;
+  width: 100%;
+  margin: 0 0 12px;
+  padding: 0;
+  color: var(--paper);
+  font-size: clamp(20px, 4.8vw, 30px);
   font-weight: 800;
+  line-height: 1.28;
+}
+
+.quiz-question legend + label {
+  clear: both;
 }
 
 .quiz-question label {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  border: 1px solid transparent;
+  border: 1px solid rgba(225, 229, 238, 0.18);
   border-radius: 8px;
-  padding: 10px 12px;
-  color: var(--deep);
+  padding: 12px 14px;
+  background: rgba(245, 246, 253, 0.9);
+  color: var(--ink);
   cursor: pointer;
+  transition: background 160ms ease, border 160ms ease, transform 160ms ease;
+}
+
+.quiz-question label:hover {
+  transform: translateY(-1px);
+  background: var(--white);
 }
 
 .quiz-question label:has(input:checked) {
-  border-color: rgba(179, 184, 200, 0.92);
-  background: var(--paper);
+  border-color: rgba(245, 246, 253, 0.72);
+  background: var(--mist);
   color: var(--ink);
-  font-weight: 750;
+  font-weight: 800;
 }
 
 .quiz-question input {
+  flex: 0 0 auto;
   margin-top: 5px;
   accent-color: var(--ink);
 }
@@ -243,7 +264,7 @@ h1 {
 .quiz-warning {
   display: none;
   margin: -2px 0 0;
-  color: #8a3b3b;
+  color: var(--paper);
   font-weight: 750;
 }
 
