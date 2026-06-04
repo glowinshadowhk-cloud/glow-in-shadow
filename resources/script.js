@@ -99,12 +99,33 @@ const guide = guides[type];
 const fields = ["answer1", "answer2", "answer3"];
 const storageKey = `glow-resource-${type}`;
 
+const resultCopy = {
+  internal: {
+    title: "你現在最需要：《為什麼你活得這麼累？》",
+    text: "你的答案比較指向長期內耗。你可能不是不夠努力，而是太習慣用力、負責、撐住所有事。這份指南會先陪你看見自己的消耗模式。",
+  },
+  sos: {
+    title: "你現在最需要：《累了就打開》",
+    text: "你的答案比較指向情緒超載。現在最重要的不是立刻想通，而是先讓身體和情緒慢慢穩下來。",
+  },
+  hsp: {
+    title: "你現在最需要：《高敏感者的自救指南》",
+    text: "你的答案比較指向高敏感與能量耗損。你不是太敏感，你只是需要更清楚地保護自己的能量邊界。",
+  },
+  love: {
+    title: "你現在最需要：《愛，為什麼那麼難？》",
+    text: "你的答案比較指向關係模式。你可能一直在愛裡重複同一種不安、討好或受傷，這份指南會陪你看見背後的劇本。",
+  },
+};
+
 function setText(id, text) {
   const element = document.getElementById(id);
   if (element) element.textContent = text;
 }
 
 function loadGuide() {
+  if (!document.getElementById("worksheetForm")) return;
+
   document.title = `${guide.title}｜glow.in.shadow`;
   setText("stepLabel", guide.step);
   setText("guideKicker", guide.kicker);
@@ -136,6 +157,58 @@ function loadGuide() {
   });
 }
 
+function getQuizResult(form) {
+  const scores = { internal: 0, sos: 0, hsp: 0, love: 0 };
+  const selected = new FormData(form);
+
+  for (const value of selected.values()) {
+    if (scores[value] !== undefined) scores[value] += 1;
+  }
+
+  return Object.entries(scores).sort((a, b) => b[1] - a[1])[0][0];
+}
+
+function loadQuiz() {
+  const quiz = document.getElementById("resourceQuiz");
+  if (!quiz) return;
+
+  const result = document.getElementById("quizResult");
+  const resultTitle = document.getElementById("resultTitle");
+  const resultText = document.getElementById("resultText");
+  const resultPdfLink = document.getElementById("resultPdfLink");
+  const resultWorksheetLink = document.getElementById("resultWorksheetLink");
+  const resetQuiz = document.getElementById("resetQuiz");
+
+  quiz.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const answered = new FormData(quiz);
+    const missing = ["q1", "q2", "q3", "q4"].some((name) => !answered.get(name));
+
+    if (missing) {
+      quiz.classList.add("quiz-form--incomplete");
+      return;
+    }
+
+    quiz.classList.remove("quiz-form--incomplete");
+    const resultType = getQuizResult(quiz);
+    const resultGuide = guides[resultType];
+    const copy = resultCopy[resultType];
+
+    resultTitle.textContent = copy.title;
+    resultText.textContent = copy.text;
+    resultPdfLink.href = resultGuide.link;
+    resultWorksheetLink.href = `./guide.html?type=${resultType}`;
+    result.hidden = false;
+    result.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+
+  resetQuiz.addEventListener("click", () => {
+    quiz.reset();
+    result.hidden = true;
+    quiz.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+}
+
 function saveAnswers() {
   const data = {};
   fields.forEach((field) => {
@@ -164,4 +237,5 @@ async function copyAnswers() {
 }
 
 loadGuide();
+loadQuiz();
 document.getElementById("copyAnswers")?.addEventListener("click", copyAnswers);

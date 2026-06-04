@@ -6,7 +6,7 @@
     <title>你現在最需要哪一份指南？｜glow.in.shadow</title>
     <meta
       name="description"
-      content="選一個最像你現在狀態的入口，開始一份自我覺察練習。"
+      content="用 4 題小測驗，找出你現在最需要的一份自我覺察指南。"
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
@@ -21,37 +21,75 @@
           <p class="eyebrow">free self-awareness guides</p>
           <h1>你現在最需要哪一份指南？</h1>
           <p>
-            不用想太多。選一個最像你現在狀態的入口，先讓自己被理解一點點。
+            4 題小測驗，看看你現在最需要先被哪一部分的自己接住。
           </p>
         </div>
       </header>
 
-      <section class="choice-grid" aria-label="免費資源選擇">
-        <a class="choice-card" href="./guide.html?type=internal">
-          <span class="choice-card__icon">01</span>
-          <p>我一直很累，不知道為什麼</p>
-          <strong>《為什麼你活得這麼累？》</strong>
-        </a>
-        <a class="choice-card" href="./guide.html?type=sos">
-          <span class="choice-card__icon">02</span>
-          <p>我快撐不住，需要先穩住</p>
-          <strong>《累了就打開》</strong>
-        </a>
-        <a class="choice-card" href="./guide.html?type=hsp">
-          <span class="choice-card__icon">03</span>
-          <p>我感受太深，很容易耗盡</p>
-          <strong>《高敏感者的自救指南》</strong>
-        </a>
-        <a class="choice-card" href="./guide.html?type=love">
-          <span class="choice-card__icon">04</span>
-          <p>我在愛裡一直重複受傷</p>
-          <strong>《愛，為什麼那麼難？》</strong>
-        </a>
+      <section class="quiz" aria-label="免費指南小測驗">
+        <div class="quiz__intro">
+          <p class="eyebrow">quick test</p>
+          <h2>現在的你，最像哪一種狀態？</h2>
+          <p>不用選「最正確」的答案。選第一個讓你心裡有感覺的就好。</p>
+        </div>
+
+        <form class="quiz-form" id="resourceQuiz">
+          <fieldset class="quiz-question">
+            <legend>1. 最近最常出現的感覺是？</legend>
+            <label><input type="radio" name="q1" value="internal" /> 一直很累，但又停不下來</label>
+            <label><input type="radio" name="q1" value="sos" /> 情緒很滿，快要撐不住</label>
+            <label><input type="radio" name="q1" value="hsp" /> 感受太多，很容易被外界影響</label>
+            <label><input type="radio" name="q1" value="love" /> 在關係裡反覆受傷或不安</label>
+          </fieldset>
+
+          <fieldset class="quiz-question">
+            <legend>2. 如果現在只能先處理一件事，你最想先處理？</legend>
+            <label><input type="radio" name="q2" value="sos" /> 先讓自己冷靜下來</label>
+            <label><input type="radio" name="q2" value="internal" /> 找到自己為什麼這麼累</label>
+            <label><input type="radio" name="q2" value="love" /> 看懂自己在愛裡的模式</label>
+            <label><input type="radio" name="q2" value="hsp" /> 保護自己的能量和界線</label>
+          </fieldset>
+
+          <fieldset class="quiz-question">
+            <legend>3. 哪一句最像你最近心裡的聲音？</legend>
+            <label><input type="radio" name="q3" value="internal" /> 「我是不是永遠都不夠好？」</label>
+            <label><input type="radio" name="q3" value="sos" /> 「我現在真的好想有人接住我。」</label>
+            <label><input type="radio" name="q3" value="hsp" /> 「為什麼我總是感受得那麼深？」</label>
+            <label><input type="radio" name="q3" value="love" /> 「為什麼我總是在關係裡失去自己？」</label>
+          </fieldset>
+
+          <fieldset class="quiz-question">
+            <legend>4. 你希望這份指南先陪你做到什麼？</legend>
+            <label><input type="radio" name="q4" value="love" /> 看見自己反覆受傷的關係劇本</label>
+            <label><input type="radio" name="q4" value="hsp" /> 學會不再被外界消耗到空掉</label>
+            <label><input type="radio" name="q4" value="internal" /> 理解那些一直推著我前進的壓力</label>
+            <label><input type="radio" name="q4" value="sos" /> 在最混亂的時候先穩住自己</label>
+          </fieldset>
+
+          <button class="button button--primary" type="submit">看我的結果</button>
+          <p class="quiz-warning" id="quizWarning">請先完成 4 題，再看你的結果。</p>
+        </form>
+
+        <article class="quiz-result" id="quizResult" hidden>
+          <p class="eyebrow">your guide</p>
+          <h2 id="resultTitle"></h2>
+          <p id="resultText"></p>
+          <div class="actions">
+            <a class="button button--primary" id="resultPdfLink" href="#" target="_blank" rel="noreferrer">
+              領取完整 PDF
+            </a>
+            <a class="button button--ghost" id="resultWorksheetLink" href="#">
+              先做 3 題覺察練習
+            </a>
+          </div>
+          <button class="reset-quiz" type="button" id="resetQuiz">重新測一次</button>
+        </article>
       </section>
 
       <footer class="resource-footer">
         <p>你不需要被修好。你只是還沒被完整地看見。</p>
       </footer>
     </main>
+    <script src="./script.js"></script>
   </body>
 </html>
