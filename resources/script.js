@@ -101,21 +101,28 @@ const storageKey = `glow-resource-${type}`;
 
 const resultCopy = {
   internal: {
-    title: "你現在最需要：《為什麼你活得這麼累？》",
-    text: "你的答案比較指向長期內耗。你可能不是不夠努力，而是太習慣用力、負責、撐住所有事。這份指南會先陪你看見自己的消耗模式。",
+    title: "你現在最需要先看：《為什麼你活得這麼累？》",
+    text: "你的答案比較指向長期內耗。你可能不是不夠努力，而是太習慣用力、負責、撐住所有事。建議你先從這份指南開始。",
   },
   sos: {
-    title: "你現在最需要：《累了就打開》",
-    text: "你的答案比較指向情緒超載。現在最重要的不是立刻想通，而是先讓身體和情緒慢慢穩下來。",
+    title: "你現在最需要先看：《累了就打開》",
+    text: "你的答案比較指向情緒超載。現在最重要的不是立刻想通，而是先讓身體和情緒慢慢穩下來。建議你先從這份指南開始。",
   },
   hsp: {
-    title: "你現在最需要：《高敏感者的自救指南》",
-    text: "你的答案比較指向高敏感與能量耗損。你不是太敏感，你只是需要更清楚地保護自己的能量邊界。",
+    title: "你現在最需要先看：《高敏感者的自救指南》",
+    text: "你的答案比較指向高敏感與能量耗損。你不是太敏感，你只是需要更清楚地保護自己的能量邊界。建議你先從這份指南開始。",
   },
   love: {
-    title: "你現在最需要：《愛，為什麼那麼難？》",
-    text: "你的答案比較指向關係模式。你可能一直在愛裡重複同一種不安、討好或受傷，這份指南會陪你看見背後的劇本。",
+    title: "你現在最需要先看：《愛，為什麼那麼難？》",
+    text: "你的答案比較指向關係模式。你可能一直在愛裡重複同一種不安、討好或受傷。建議你先從這份指南開始。",
   },
+};
+
+const relatedLabels = {
+  internal: "我也想看見自己的內耗",
+  sos: "我也想先穩住情緒",
+  hsp: "我也想保護自己的能量",
+  love: "我也想看懂關係模式",
 };
 
 function setText(id, text) {
@@ -177,6 +184,7 @@ function loadQuiz() {
   const resultText = document.getElementById("resultText");
   const resultPdfLink = document.getElementById("resultPdfLink");
   const resultWorksheetLink = document.getElementById("resultWorksheetLink");
+  const relatedGuideLinks = document.getElementById("relatedGuideLinks");
   const resetQuiz = document.getElementById("resetQuiz");
 
   quiz.addEventListener("submit", (event) => {
@@ -198,6 +206,13 @@ function loadQuiz() {
     resultText.textContent = copy.text;
     resultPdfLink.href = resultGuide.link;
     resultWorksheetLink.href = `./guide.html?type=${resultType}`;
+    relatedGuideLinks.innerHTML = Object.entries(guides)
+      .filter(([guideType]) => guideType !== resultType)
+      .map(
+        ([guideType, item]) =>
+          `<a class="related-guide-link" href="${item.link}" target="_blank" rel="noreferrer">${relatedLabels[guideType]}</a>`
+      )
+      .join("");
     result.hidden = false;
     result.scrollIntoView({ behavior: "smooth", block: "start" });
   });

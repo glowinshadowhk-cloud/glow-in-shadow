@@ -21,7 +21,7 @@
           <p class="eyebrow">free self-awareness guides</p>
           <h1>你現在最需要哪一份指南？</h1>
           <p>
-            4 題小測驗，看看你現在最需要先被哪一部分的自己接住。
+            4 題小測驗，看看你現在哪一部分最需要被接住。
           </p>
         </div>
       </header>
@@ -35,7 +35,7 @@
 
         <form class="quiz-form" id="resourceQuiz">
           <div class="quiz-question" role="radiogroup" aria-labelledby="q1-title">
-            <h3 id="q1-title">1. 最近最常出現的感覺是？</h3>
+            <h3 id="q1-title">1. 你最近最常出現的感覺是？</h3>
             <label><input type="radio" name="q1" value="internal" /> 一直很累，但又停不下來</label>
             <label><input type="radio" name="q1" value="sos" /> 情緒很滿，快要撐不住</label>
             <label><input type="radio" name="q1" value="hsp" /> 感受太多，很容易被外界影響</label>
@@ -82,12 +82,17 @@
               先做 3 題覺察練習
             </a>
           </div>
+          <aside class="related-guides" aria-label="其他可能適合你的指南">
+            <h3>你可能也會需要：</h3>
+            <p>如果你也在其他狀態裡看見自己，可以回來領取其他指南。</p>
+            <div class="related-guides__links" id="relatedGuideLinks"></div>
+          </aside>
           <button class="reset-quiz" type="button" id="resetQuiz">重新測一次</button>
         </article>
       </section>
 
       <footer class="resource-footer">
-        <p>你不需要被修好。你只是還沒被完整地看見。</p>
+        <p>你不是不夠好，你只是還沒看見自己。</p>
       </footer>
     </main>
     <script src="./script.js"></script>
