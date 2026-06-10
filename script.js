@@ -1,7 +1,9 @@
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 if (!prefersReducedMotion) {
-  const revealItems = document.querySelectorAll(".guide, .journey__content, .about");
+  const revealItems = document.querySelectorAll(
+    ".principle, .funnel__content, .journey__content, .closing"
+  );
 
   const observer = new IntersectionObserver(
     (entries) => {
