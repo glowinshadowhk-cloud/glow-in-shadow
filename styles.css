@@ -48,7 +48,7 @@ a {
   background:
     linear-gradient(90deg, rgba(23, 35, 49, 0.92) 0%, rgba(44, 62, 80, 0.72) 42%, rgba(44, 62, 80, 0.22) 100%),
     linear-gradient(0deg, rgba(23, 35, 49, 0.72), rgba(23, 35, 49, 0.18) 48%, rgba(23, 35, 49, 0.38)),
-    url("./assets/love-bg.png") 62% center / cover no-repeat;
+    url("./assets/home-hero-bg.png") 62% center / cover no-repeat;
   opacity: 0.9;
 }
 
@@ -450,7 +450,7 @@ p {
     background:
       linear-gradient(90deg, rgba(23, 35, 49, 0.9), rgba(44, 62, 80, 0.55)),
       linear-gradient(0deg, rgba(23, 35, 49, 0.7), rgba(23, 35, 49, 0.28)),
-      url("./assets/love-bg.png") 66% center / cover no-repeat;
+      url("./assets/home-hero-bg.png") 66% center / cover no-repeat;
   }
 
   .nav {
