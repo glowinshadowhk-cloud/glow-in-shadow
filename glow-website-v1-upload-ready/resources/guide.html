@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>免費自我覺察練習｜glow.in.shadow</title>
+    <meta
+      name="description"
+      content="一份可以直接在手機上填寫的自我覺察練習。"
+    />
+    <link rel="stylesheet" href="./styles.css?v=quiz5" />
+  </head>
+  <body>
+    <main class="worksheet-shell">
+      <nav class="topbar topbar--sticky" aria-label="頁面導覽">
+        <a href="./index.html" class="brand">glow.in.shadow</a>
+        <span id="stepLabel">STEP 01</span>
+      </nav>
+
+      <article class="worksheet">
+        <header class="worksheet__header">
+          <p class="eyebrow" id="guideKicker">free guide</p>
+          <h1 id="guideTitle">免費自我覺察練習</h1>
+          <p id="guideIntro"></p>
+        </header>
+
+        <section class="note" aria-label="填寫提示">
+          <strong>填寫指引：</strong>
+          不用思考超過 3 秒。先寫下最直覺、最真實的答案。
+        </section>
+
+        <form class="prompts" id="worksheetForm">
+          <div class="prompt">
+            <label for="answer1" id="question1"></label>
+            <p id="hint1"></p>
+            <textarea id="answer1" name="answer1" rows="4"></textarea>
+          </div>
+
+          <div class="prompt">
+            <label for="answer2" id="question2"></label>
+            <p id="hint2"></p>
+            <textarea id="answer2" name="answer2" rows="5"></textarea>
+          </div>
+
+          <div class="prompt">
+            <label for="answer3" id="question3"></label>
+            <p id="hint3"></p>
+            <textarea id="answer3" name="answer3" rows="5"></textarea>
+          </div>
+        </form>
+
+        <section class="next-step" aria-label="下一步">
+          <p id="closingText"></p>
+          <div class="actions">
+            <button class="button button--ghost" type="button" id="copyAnswers">
+              複製我的答案
+            </button>
+            <a class="button button--primary" id="downloadLink" href="#" target="_blank" rel="noreferrer">
+              領取完整 PDF
+            </a>
+          </div>
+          <small>你的答案只會留在這部裝置的瀏覽器，不會自動送出。</small>
+        </section>
+      </article>
+    </main>
+    <script src="./script.js"></script>
+  </body>
+</html>

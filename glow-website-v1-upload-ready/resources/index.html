@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>你現在，在旅程的哪一個地方？｜glow.in.shadow</title>
+    <meta
+      name="description"
+      content="用 4 題小測驗，找出你現在最需要的一份自我覺察指南。"
+    />
+    <link rel="stylesheet" href="./styles.css?v=quiz5" />
+  </head>
+  <body>
+    <main class="resource-home">
+      <header class="resource-hero">
+        <nav class="topbar" aria-label="頁面導覽">
+          <a href="../index.html" class="brand">glow.in.shadow</a>
+          <span>免費資源</span>
+        </nav>
+        <div class="resource-hero__content">
+          <p class="eyebrow">free self-awareness guides</p>
+          <h1>你現在，在旅程的哪一個地方？</h1>
+          <p>
+            4 題小測驗，看看你現在哪一部分最需要被接住。
+          </p>
+        </div>
+      </header>
+
+      <section class="quiz" aria-label="免費指南小測驗">
+        <div class="quiz__intro">
+          <p class="eyebrow">quick test</p>
+          <h2>先不用分析，選最像你的那一個。</h2>
+          <p>這不是診斷，也不是分類。它只是幫你從混亂裡找到第一個入口。</p>
+        </div>
+
+        <form class="quiz-form" id="resourceQuiz">
+          <div class="quiz-question" role="radiogroup" aria-labelledby="q1-title">
+            <h3 id="q1-title">1. 你最近最常出現的感覺是？</h3>
+            <label><input type="radio" name="q1" value="internal" /> 一直很累，但又停不下來</label>
+            <label><input type="radio" name="q1" value="sos" /> 情緒很滿，快要撐不住</label>
+            <label><input type="radio" name="q1" value="hsp" /> 感受太多，光是活著就已經很累</label>
+            <label><input type="radio" name="q1" value="love" /> 在關係裡反覆受傷或不安</label>
+          </div>
+
+          <div class="quiz-question" role="radiogroup" aria-labelledby="q2-title">
+            <h3 id="q2-title">2. 如果夜深人靜時，你最常對自己說的是？</h3>
+            <label><input type="radio" name="q2" value="hsp" /> 我好想可以說不，但每次開口都說不出來</label>
+            <label><input type="radio" name="q2" value="sos" /> 我不知道從什麼時候開始，我開始不認識自己了</label>
+            <label><input type="radio" name="q2" value="love" /> 我好像每次都喜歡上同一種讓我受傷的人</label>
+            <label><input type="radio" name="q2" value="internal" /> 我不知道為什麼，我就是覺得自己不夠好</label>
+          </div>
+
+          <div class="quiz-question" role="radiogroup" aria-labelledby="q3-title">
+            <h3 id="q3-title">3. 哪一句最像你最近心裡的聲音？</h3>
+            <label><input type="radio" name="q3" value="internal" /> 「我是不是永遠都不夠好？」</label>
+            <label><input type="radio" name="q3" value="sos" /> 「我現在真的好想有人接住我。」</label>
+            <label><input type="radio" name="q3" value="hsp" /> 「為什麼我總是感受得那麼深？」</label>
+            <label><input type="radio" name="q3" value="love" /> 「為什麼我總是在關係裡失去自己？」</label>
+          </div>
+
+          <div class="quiz-question" role="radiogroup" aria-labelledby="q4-title">
+            <h3 id="q4-title">4. 你希望這份指南先陪你做到什麼？</h3>
+            <label><input type="radio" name="q4" value="love" /> 看見自己反覆受傷的關係劇本</label>
+            <label><input type="radio" name="q4" value="hsp" /> 學會不再被外界消耗到空掉</label>
+            <label><input type="radio" name="q4" value="internal" /> 理解那些一直推著我前進的壓力</label>
+            <label><input type="radio" name="q4" value="sos" /> 在最混亂的時候先穩住自己</label>
+          </div>
+
+          <button class="button button--primary" type="submit">看我的結果</button>
+          <p class="quiz-warning" id="quizWarning">請先完成 4 題，再看你的結果。</p>
+        </form>
+
+        <article class="quiz-result" id="quizResult" hidden>
+          <p class="eyebrow">your guide</p>
+          <h2 id="resultTitle"></h2>
+          <p id="resultText"></p>
+          <div class="actions">
+            <a class="button button--primary" id="resultPdfLink" href="#" target="_blank" rel="noreferrer">
+              領取完整 PDF
+            </a>
+            <a class="button button--ghost" id="resultWorksheetLink" href="#">
+              先做 3 題覺察練習
+            </a>
+          </div>
+          <aside class="related-guides" aria-label="其他可能適合你的指南">
+            <h3>你可能也會需要：</h3>
+            <p>人不會只屬於一種狀態。如果你在其他入口也看見自己，可以慢慢回來拿。</p>
+            <div class="related-guides__links" id="relatedGuideLinks"></div>
+          </aside>
+          <button class="reset-quiz" type="button" id="resetQuiz">重新測一次</button>
+        </article>
+      </section>
+
+      <footer class="resource-footer">
+        <p>你願意停下來，看一眼自己——這本身，已經是重新連結的開始。</p>
+      </footer>
+    </main>
+    <script src="./script.js?v=quiz2"></script>
+  </body>
+</html>
