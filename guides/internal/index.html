@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>為什麼你活得這麼累？｜glow.in.shadow</title>
+    <meta
+      name="description"
+      content="陪你看見一直消耗你的 5 種內耗模式，理解自己正在用甚麼方式換取安全、價值和被愛。"
+    />
+    <link rel="stylesheet" href="./styles.css?v=internal-guide-review-1" />
+    <style>
+      .assessment-section,
+      .practice-section {
+        padding: clamp(60px, 8vw, 104px) 20px;
+      }
+
+      .assessment-card,
+      .energy-result,
+      .practice-list {
+        width: min(1040px, 100%);
+        margin-right: auto;
+        margin-left: auto;
+      }
+
+      .assessment-section {
+        background:
+          radial-gradient(circle at 80% 8%, rgba(179, 184, 200, 0.22), transparent 28%),
+          linear-gradient(180deg, #ffffff, #eef1f8);
+      }
+
+      .assessment-card {
+        display: grid;
+        gap: 10px;
+        margin-top: 38px;
+      }
+
+      .assessment-card label {
+        display: grid;
+        grid-template-columns: 24px minmax(0, 1fr);
+        gap: 12px;
+        align-items: start;
+        padding: 18px 20px;
+        border: 1px solid rgba(179, 184, 200, 0.5);
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.8);
+        color: var(--deep);
+        font-size: 17px;
+        line-height: 1.7;
+        cursor: pointer;
+        transition: border-color 160ms ease, background 160ms ease, transform 160ms ease;
+      }
+
+      .assessment-card label:hover {
+        border-color: var(--mist);
+        background: var(--white);
+        transform: translateY(-1px);
+      }
+
+      .assessment-card input {
+        width: 19px;
+        height: 19px;
+        margin: 4px 0 0;
+        accent-color: var(--ink);
+      }
+
+      .energy-result {
+        display: grid;
+        grid-template-columns: 120px minmax(0, 1fr);
+        gap: 24px;
+        align-items: center;
+        margin-top: 18px;
+        padding: 26px;
+        border-radius: 10px;
+        background: var(--night);
+        color: var(--white);
+        box-shadow: 0 22px 50px rgba(23, 35, 49, 0.16);
+      }
+
+      .result-count {
+        margin: 0;
+        color: var(--mist);
+        font-size: 18px;
+        text-align: center;
+      }
+
+      .result-count strong {
+        display: block;
+        color: var(--white);
+        font-size: 48px;
+        line-height: 1;
+      }
+
+      .result-label {
+        margin: 0 0 6px;
+        color: var(--white);
+        font-size: 22px;
+        font-weight: 850;
+      }
+
+      .energy-result div > p:last-child {
+        margin: 0;
+        color: rgba(245, 246, 253, 0.8);
+      }
+
+      .check-grid a {
+        display: inline-flex;
+        margin-top: 18px;
+        border-bottom: 1px solid rgba(44, 62, 80, 0.35);
+        color: var(--ink);
+        font-size: 14px;
+        font-weight: 850;
+      }
+
+      .practice-section {
+        background: var(--paper);
+      }
+
+      .practice-list {
+        display: grid;
+        gap: 16px;
+        margin-top: 40px;
+      }
+
+      .practice-card {
+        scroll-margin-top: 20px;
+        padding: clamp(24px, 4vw, 38px);
+        border: 1px solid rgba(179, 184, 200, 0.52);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.82);
+        box-shadow: 0 20px 50px rgba(44, 62, 80, 0.07);
+      }
+
+      .practice-meta {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        color: #7e879b;
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .practice-card h3 {
+        margin: 12px 0 8px;
+        font-size: clamp(26px, 4vw, 36px);
+        line-height: 1.25;
+      }
+
+      .practice-when {
+        margin: 0;
+        color: #6e7789;
+        font-weight: 760;
+      }
+
+      .practice-card ol {
+        display: grid;
+        gap: 10px;
+        margin: 24px 0 0;
+        padding-left: 24px;
+      }
+
+      .practice-card li {
+        padding-left: 6px;
+        color: var(--deep);
+        font-size: 17px;
+        line-height: 1.78;
+      }
+
+      .practice-note {
+        margin: 24px 0 0;
+        padding: 18px 20px;
+        border-left: 3px solid var(--mist);
+        background: #f0f2f8;
+        color: var(--deep);
+        font-size: 16px;
+        line-height: 1.78;
+      }
+
+      @media (max-width: 620px) {
+        .energy-result {
+          grid-template-columns: 78px minmax(0, 1fr);
+          gap: 16px;
+          padding: 22px 18px;
+        }
+
+        .result-count strong {
+          font-size: 38px;
+        }
+
+        .assessment-card label {
+          padding: 16px;
+          font-size: 16px;
+        }
+
+        .practice-card li {
+          font-size: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <section class="guide-hero" aria-label="為什麼你活得這麼累？">
+        <nav class="guide-nav" aria-label="頁面導覽">
+          <a href="../../index.html" class="brand" aria-label="回到 glow.in.shadow 首頁">
+            <span>glow.in.shadow</span>
+          </a>
+          <a href="../../resources/index.html" class="nav-link">重新做測驗</a>
+        </nav>
+
+        <div class="hero-panel">
+          <p class="eyebrow">free guide 01 / internal exhaustion</p>
+          <h1>為什麼你活得這麼累？</h1>
+          <p class="hero-lead">
+            陪你看見一直消耗你的 5 種內耗模式。
+          </p>
+          <p class="hero-copy">
+            你明明已經很努力了，卻還是覺得累。不是身體累，而是精神上好像一直沒有真正停下來。
+            這份指南不是要你立刻改變，而是先陪你看見：你正在用甚麼方式換取安全、價值和被愛。
+          </p>
+        </div>
+      </section>
+
+      <section class="intro-section" aria-label="開始之前">
+        <div class="content-grid">
+          <div>
+            <p class="eyebrow">before you read</p>
+            <h2>累，不代表你不夠努力。</h2>
+          </div>
+          <div class="intro-copy">
+            <p>
+              很多人的累，不是因為做得太少，而是因為一直在用力證明自己可以、自己沒事、自己值得被愛。
+            </p>
+            <p>
+              你可能習慣撐著，習慣想很多，習慣先照顧別人的感受。久了之後，連「我其實已經很累」這件事，也變得很難承認。
+            </p>
+            <p>
+              這不是你的本質。很多時候，它只是你很久以前學會的一種生存方式。它曾經保護過你，只是現在，它也開始消耗你。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="assessment-section" id="energy-check" aria-label="能量流失檢測">
+        <div class="section-heading section-heading--narrow">
+          <p class="eyebrow">energy check-in</p>
+          <h2>你的能量，正從哪裡流失？</h2>
+          <p>
+            在符合你最近狀態的項目旁打勾。不要分析太久，第一個反應已經足夠。
+            這不是診斷，只是一面幫你看見自己的鏡子。
+          </p>
+        </div>
+        <form class="assessment-card" id="energy-form">
+          <label><input class="energy-check" type="checkbox" />別人沒有生氣，我也會忍不住想：「是不是我做錯了甚麼？」</label>
+          <label><input class="energy-check" type="checkbox" />我很難開口說「不」，即使心裡其實不願意。</label>
+          <label><input class="energy-check" type="checkbox" />即使別人說我做得很好，我仍然覺得自己應該做得更好。</label>
+          <label><input class="energy-check" type="checkbox" />我習慣吞下情緒，覺得說出來只會給別人添麻煩。</label>
+          <label><input class="energy-check" type="checkbox" />我會先確保身邊的人都好了，才允許自己休息。</label>
+          <label><input class="energy-check" type="checkbox" />我很容易察覺別人的情緒，然後不自覺地調整自己。</label>
+          <label><input class="energy-check" type="checkbox" />晚上躺下後，腦裡仍會重播對話、擔心明天或檢查自己。</label>
+          <label><input class="energy-check" type="checkbox" />我對自己的要求，遠比對別人的要求高。</label>
+          <label><input class="energy-check" type="checkbox" />如果自己「沒有用」，我便很難相信自己值得被在乎。</label>
+          <label><input class="energy-check" type="checkbox" />我已經記不起上一次真正放鬆、甚麼都不用想的時候。</label>
+        </form>
+        <div class="energy-result" id="energy-result" aria-live="polite">
+          <p class="result-count"><strong id="energy-count">0</strong> / 10</p>
+          <div>
+            <p class="result-label" id="energy-level">先從誠實看見自己開始</p>
+            <p id="energy-message">每勾選一項，這裡便會陪你理解目前的能量狀態。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="signal-section" aria-label="你可能正在經歷">
+        <div class="section-heading">
+          <p class="eyebrow">quiet signals</p>
+          <h2>如果你最近常常這樣，這不是你的錯。</h2>
+        </div>
+        <div class="signal-grid">
+          <article>
+            <span>01</span>
+            <p>明明沒有做很多事，卻一直覺得心很累。</p>
+          </article>
+          <article>
+            <span>02</span>
+            <p>很難真正休息，一停下來就覺得自己很廢。</p>
+          </article>
+          <article>
+            <span>03</span>
+            <p>腦裡常常重播對話、情境、別人的眼神和語氣。</p>
+          </article>
+          <article>
+            <span>04</span>
+            <p>想拒絕別人，但又害怕自己變得自私或麻煩。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="why-section" aria-label="為什麼會這麼累">
+        <div class="content-grid">
+          <div>
+            <p class="eyebrow">why it feels endless</p>
+            <h2>真正讓你累的，可能不是事情本身。</h2>
+          </div>
+          <div class="intro-copy">
+            <p>
+              有時候，最消耗人的不是工作、訊息、關係或責任，而是你在做每件事時，心裡同時跑著另一套聲音。
+            </p>
+            <p>
+              「我不可以讓人失望。」 「我一定要做得更好。」 「我不能停下來。」 「如果我表現不好，就不值得被愛。」
+            </p>
+            <p>
+              這些聲音看起來像推動力，但它們也可能讓你長期活在警戒裡。你不是單純在完成事情，你是在一邊生活，一邊努力證明自己沒有問題。
+            </p>
+          </div>
+        </div>
+
+        <div class="belief-grid" aria-label="三個常見的隱形信念">
+          <article>
+            <span>01</span>
+            <h3>我要有用，才值得被留下。</h3>
+            <p>所以你很難只是存在。你習慣付出、照顧、完成、承擔，好像只要停下來，就會失去價值。</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>我不能麻煩別人。</h3>
+            <p>所以你把需要收起來，把情緒壓下去，假裝自己沒事。久了之後，你連自己真正想要甚麼也聽不見。</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>我必須想清楚，才不會出錯。</h3>
+            <p>所以你反覆分析、預演、檢查所有可能。你不是想太多，你是在試圖讓自己安全。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="patterns-section" id="patterns" aria-label="5 種內耗模式">
+        <div class="section-heading section-heading--narrow">
+          <p class="eyebrow">5 hidden patterns</p>
+          <h2>5 種常見的內耗模式</h2>
+          <p>
+            你不需要馬上判斷自己是哪一種。先慢慢讀，看看哪一段最像你最近心裡的聲音。
+          </p>
+        </div>
+
+        <div class="pattern-list">
+          <article class="pattern-card">
+            <div class="pattern-number">01</div>
+            <div>
+              <h3>不敢停下來</h3>
+              <p>你把休息理解成退步。只有一直做事、一直有用、一直保持表現，才覺得自己安全。</p>
+              <strong>內在聲音：我不能停，停下來就會被落下。</strong>
+              <div class="pattern-extra">
+                <p>這種模式常見於很早就學會「懂事」的人。你可能很少被允許只是累、只是想休息、只是甚麼都不做。你習慣把自己推前，因為停下來會讓你不安。</p>
+                <p>可以留意：你是不是在休息時反而更焦慮？你是不是只有在完成很多事之後，才覺得自己值得被肯定？</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="pattern-card">
+            <div class="pattern-number">02</div>
+            <div>
+              <h3>不敢說不</h3>
+              <p>你很會照顧別人的感受，卻常常把自己的界線放到最後。你不是沒有需要，只是不敢讓它出現。</p>
+              <strong>內在聲音：如果我拒絕，他們會不會不喜歡我？</strong>
+              <div class="pattern-extra">
+                <p>你可能不是喜歡答應所有事，而是太害怕拒絕帶來的後果。你怕對方失望、怕氣氛變差、怕自己變成麻煩的人。</p>
+                <p>可以留意：你說「好啊」的時候，身體有沒有一瞬間變緊？你是不是常常答應之後才開始後悔？</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="pattern-card">
+            <div class="pattern-number">03</div>
+            <div>
+              <h3>壓抑情緒</h3>
+              <p>你習慣把難過、委屈、生氣都收起來，告訴自己「算了」。但被壓下去的東西，會用疲憊的方式回來。</p>
+              <strong>內在聲音：我不應該有這麼多感覺。</strong>
+              <div class="pattern-extra">
+                <p>情緒沒有消失，只是被你放到很深的地方。它可能變成胸口悶、喉嚨緊、睡不好、突然想哭，或一種說不出的空。</p>
+                <p>可以留意：你是不是很快就替別人找理由，卻很少承認自己其實受傷了？</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="pattern-card">
+            <div class="pattern-number">04</div>
+            <div>
+              <h3>過度思考</h3>
+              <p>你反覆分析每一句話、每一個選擇、每一種可能。你不是想太多，你是在試圖避免再次受傷。</p>
+              <strong>內在聲音：如果我想清楚一點，就不會出錯。</strong>
+              <div class="pattern-extra">
+                <p>過度思考很多時候不是理性，而是一種警戒。你希望在事情發生前先找出所有風險，這樣就不會被突如其來的痛擊中。</p>
+                <p>可以留意：你是不是常常在腦裡重播對話？你是不是很難相信「不知道也可以先走一步」？</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="pattern-card">
+            <div class="pattern-number">05</div>
+            <div>
+              <h3>低價值感</h3>
+              <p>你很容易覺得自己不夠好、不夠值得、不夠被愛。即使別人肯定你，你也很難真的收下。</p>
+              <strong>內在聲音：是不是我再好一點，才值得被留下？</strong>
+              <div class="pattern-extra">
+                <p>低價值感不一定來自現在。很多時候，它是長期被比較、被否定、被忽略之後，慢慢內化成的聲音。</p>
+                <p>可以留意：你是不是很難相信別人真心喜歡你？你是不是習慣把愛理解成自己必須努力換來的東西？</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="check-section" aria-label="找到你的練習入口">
+        <div class="section-heading section-heading--narrow">
+          <p class="eyebrow">choose your doorway</p>
+          <h2>不用全部做，先選最靠近你的一個。</h2>
+          <p>信任不是來自知道更多，而是親身感受到：原來我真的可以用另一種方式陪自己。</p>
+        </div>
+        <div class="check-grid">
+          <article>
+            <h3>身體一直很緊、很累</h3>
+            <p>從「60 秒身體掃描」開始，把注意力從外界拉回自己。</p>
+            <a href="#body-scan">帶我去做</a>
+          </article>
+          <article>
+            <h3>突然心情變差，卻不知道原因</h3>
+            <p>從「情緒歸還法」開始，分辨甚麼是你的、甚麼是從外面接回來的。</p>
+            <a href="#emotion-return">帶我去做</a>
+          </article>
+          <article>
+            <h3>腦袋一直轉，停不下來</h3>
+            <p>從「3 分鐘大腦卸載」開始，不再要求自己立刻停止思考。</p>
+            <a href="#brain-dump">帶我去做</a>
+          </article>
+          <article>
+            <h3>總是責怪自己不夠好</h3>
+            <p>從「換一個對自己說話的聲音」開始，練習不用羞辱逼自己前進。</p>
+            <a href="#kind-voice">帶我去做</a>
+          </article>
+          <article>
+            <h3>很難拒絕，答應後又後悔</h3>
+            <p>從「安全的『不』」開始，做一次很小、可以承受的界線實驗。</p>
+            <a href="#safe-no">帶我去做</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="practice-section" id="practice" aria-label="保護能量的五個練習">
+        <div class="section-heading section-heading--narrow">
+          <p class="eyebrow">five grounded practices</p>
+          <h2>保護能量，不是把自己變得不敏感。</h2>
+          <p>
+            是在舊模式自動接管之前，慢慢多出一個選擇。每次只做一個練習；開始前和完成後，
+            都留意身體、呼吸或腦內聲音有沒有一點變化。
+          </p>
+        </div>
+        <div class="practice-list">
+          <article class="practice-card" id="body-scan">
+            <div class="practice-meta"><span>01</span><span>約 60 秒</span></div>
+            <h3>60 秒身體掃描</h3>
+            <p class="practice-when">適合：快要被太多事情淹沒、身體繃緊、無法休息時。</p>
+            <ol>
+              <li>把手機翻過去，雙腳踩地；眼睛可以半閉。</li>
+              <li>從額頭、下巴、肩膀、胸口到腹部，逐一問：「這裡有多緊？」</li>
+              <li>每找到一個緊繃的位置，慢慢吐一口較長的氣。</li>
+              <li>最後問：「現在有沒有比剛才鬆一點點？」</li>
+            </ol>
+            <p class="practice-note">如果環境太吵，第一步可以只是減少輸入。你不用等到 100% 崩潰，才允許自己離開。</p>
+          </article>
+
+          <article class="practice-card" id="emotion-return">
+            <div class="practice-meta"><span>02</span><span>約 2 分鐘</span></div>
+            <h3>情緒歸還法</h3>
+            <p class="practice-when">適合：突然不舒服、心情下沉，卻找不到明確原因時。</p>
+            <ol>
+              <li>問：「10 分鐘前，我還好嗎？」</li>
+              <li>問：「在感受出現之前，我和誰在一起、看了甚麼、身處甚麼環境？」</li>
+              <li>問：「這份感受原本是我的，還是我在互動後接回來的？」</li>
+              <li>如果它不屬於你，在心裡說：「我看見它了，但我不需要替它負責。」</li>
+            </ol>
+            <p class="practice-note">這不是否認情緒，而是停止把所有人的重量都自動放進自己身上。</p>
+          </article>
+
+          <article class="practice-card" id="brain-dump">
+            <div class="practice-meta"><span>03</span><span>3 分鐘</span></div>
+            <h3>大腦卸載法</h3>
+            <p class="practice-when">適合：反覆回放、預演對話、害怕做錯決定時。</p>
+            <ol>
+              <li>拿一張紙，設定 3 分鐘計時器。</li>
+              <li>把腦內所有念頭寫下來，不整理、不判斷，也不用寫完整句子。</li>
+              <li>時間到便停筆，把紙折起來或放到一旁。</li>
+              <li>對自己說：「它們已經在這裡，我不用再用腦袋一直裝著。」</li>
+            </ol>
+            <p class="practice-note">你的大腦需要的未必是「不要想」，而是一個可以安全卸下來的地方。</p>
+          </article>
+
+          <article class="practice-card" id="kind-voice">
+            <div class="practice-meta"><span>04</span><span>約 5 分鐘</span></div>
+            <h3>換一個對自己說話的聲音</h3>
+            <p class="practice-when">適合：腦內出現「你怎麼又這樣」「只有你做不到」時。</p>
+            <ol>
+              <li>原句照寫下來，不需要把它修飾得好聽。</li>
+              <li>問：「如果最好的朋友遇到同一件事，我會怎樣對她說？」</li>
+              <li>把那句話寫在旁邊，再慢慢讀一次。</li>
+              <li>今天只練習相信它 1%，已經足夠。</li>
+            </ol>
+            <p class="practice-note">溫柔不是放縱，而是停止用羞辱逼自己前進。</p>
+          </article>
+
+          <article class="practice-card" id="safe-no">
+            <div class="practice-meta"><span>05</span><span>今天一次</span></div>
+            <h3>安全的「不」</h3>
+            <p class="practice-when">適合：你常常先答應，之後才感到疲累、委屈或後悔。</p>
+            <ol>
+              <li>選一件風險很低的小事：延遲回覆、不參加聚會，或選自己真正想吃的東西。</li>
+              <li>用一句簡短的話表達，不過度解釋：「今天不方便，我下次再參與。」</li>
+              <li>留意說完後的心跳、愧疚和想立刻補救的衝動。</li>
+              <li>先呼吸，等十分鐘，再看看：天有沒有塌下來？</li>
+            </ol>
+            <p class="practice-note">不舒服不代表你做錯了，它可能只是舊模式第一次沒有得到控制權。</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="next-section" aria-label="下一步">
+        <div class="content-grid">
+          <div>
+            <p class="eyebrow">next step</p>
+            <h2>看見之後，不需要急著把自己修好。</h2>
+          </div>
+          <div class="intro-copy">
+            <p>
+              如果你在這份指南裡看見自己，請先不要急著責怪自己。那些模式不是憑空出現的，它們曾經是你保護自己的方式。
+            </p>
+            <p>
+              真正的改變，不是把舊模式一刀切掉，而是慢慢多一個選擇。下次你又想硬撐、答應、壓下情緒或反覆分析時，你可以先停一秒，問自己：
+            </p>
+            <p>
+              「我現在是在回應現在，還是在重複過去？」
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="closing-section" aria-label="結尾">
+        <div class="closing-content">
+          <p class="eyebrow">remember this</p>
+          <h2>你不是不夠好，你只是還沒看見自己。</h2>
+          <p>
+            當你開始看見那些推著你不停前進的壓力，你就已經不再完全被它帶著走。了解自己，是重新與自己連結的第一步。
+          </p>
+          <div class="closing-actions">
+            <a class="button button--dark" href="../../resources/index.html">重新做 4 題測驗</a>
+            <a class="button button--light" href="../../index.html#journey">看看 6 週旅程</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script>
+      function getEnergyMessage(score) {
+        if (score <= 2) {
+          return {
+            level: "相對穩定",
+            message: "你的能量目前相對穩定。仍然可以留意那些偶爾讓你不自覺繃緊或勉強自己的時刻。",
+          };
+        }
+        if (score <= 5) {
+          return {
+            level: "正在流失",
+            message: "有些隱形模式正在消耗你。先選一個最有感覺的練習，替自己收回一點空間。",
+          };
+        }
+        if (score <= 8) {
+          return {
+            level: "已經消耗很久",
+            message: "你可能已經撐了一段時間。這不是你不夠強，而是你一直在承擔太多。今天請把少做一點也當成照顧。",
+          };
+        }
+        return {
+          level: "現在真的很累",
+          message: "你需要的不是再努力一點，而是減少負荷和尋找支持。先選最輕的一個練習；如果疲憊持續影響生活，也值得尋求專業協助。",
+        };
+      }
+
+      function updateEnergyResult() {
+        const checks = [...document.querySelectorAll(".energy-check")];
+        const count = checks.filter((item) => item.checked).length;
+        const result = getEnergyMessage(count);
+        document.querySelector("#energy-count").textContent = count;
+        document.querySelector("#energy-level").textContent = result.level;
+        document.querySelector("#energy-message").textContent = result.message;
+      }
+
+      document.querySelectorAll(".energy-check").forEach((item) => {
+        item.addEventListener("change", updateEnergyResult);
+      });
+    </script>
+  </body>
+</html>

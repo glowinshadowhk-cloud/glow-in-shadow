@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>你的指南正在路上｜glow.in.shadow</title>
+    <meta
+      name="description"
+      content="謝謝你願意走到這裡。你的 glow.in.shadow 免費指南正在路上，請到信箱查看。"
+    />
+    <style>
+      :root {
+        --ink: #2c3e50;
+        --deep: #3e4454;
+        --mist: #b3b8c8;
+        --line: #e1e5ee;
+        --paper: #f5f6fd;
+        --white: #ffffff;
+        --night: #172331;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100svh;
+        margin: 0;
+        background: var(--night);
+        color: var(--white);
+        font-family: Avenir Next, Avenir, Optima, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+        line-height: 1.75;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .page {
+        position: relative;
+        min-height: 100svh;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        overflow: hidden;
+        background:
+          linear-gradient(90deg, rgba(23, 35, 49, 0.94) 0%, rgba(44, 62, 80, 0.78) 46%, rgba(44, 62, 80, 0.34) 100%),
+          linear-gradient(0deg, rgba(23, 35, 49, 0.76), rgba(23, 35, 49, 0.28)),
+          url("../assets/home-hero-bg.png") 62% center / cover no-repeat;
+      }
+
+      .page::after {
+        position: absolute;
+        right: min(8vw, 96px);
+        bottom: min(8vw, 96px);
+        width: clamp(120px, 18vw, 230px);
+        height: clamp(120px, 18vw, 230px);
+        border: 1px solid rgba(225, 229, 238, 0.2);
+        border-radius: 50%;
+        content: "";
+        opacity: 0.5;
+      }
+
+      .nav,
+      .footer,
+      .content {
+        position: relative;
+        z-index: 1;
+        width: min(1040px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 24px 0;
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: rgba(255, 255, 255, 0.92);
+        font-size: 15px;
+        font-weight: 800;
+      }
+
+      .brand__mark {
+        width: 14px;
+        height: 14px;
+        display: inline-block;
+        border: 1px solid rgba(245, 246, 253, 0.72);
+        border-radius: 50%;
+        box-shadow: 8px 0 0 -2px var(--mist);
+      }
+
+      .nav a:not(.brand) {
+        color: rgba(245, 246, 253, 0.74);
+        font-size: 14px;
+      }
+
+      .content {
+        align-self: center;
+        padding: clamp(56px, 8vw, 110px) 0;
+      }
+
+      .panel {
+        max-width: 760px;
+      }
+
+      .eyebrow {
+        margin: 0 0 18px;
+        color: var(--mist);
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 680px;
+        margin: 0;
+        font-size: clamp(42px, 7vw, 72px);
+        line-height: 1.15;
+        letter-spacing: 0;
+      }
+
+      .lead {
+        max-width: 640px;
+        margin: 26px 0 0;
+        color: rgba(245, 246, 253, 0.86);
+        font-size: clamp(18px, 2vw, 21px);
+      }
+
+      .next {
+        display: grid;
+        gap: 14px;
+        max-width: 620px;
+        margin-top: 34px;
+      }
+
+      .next__item {
+        display: grid;
+        grid-template-columns: 32px 1fr;
+        gap: 14px;
+        align-items: start;
+        padding: 18px 18px;
+        border: 1px solid rgba(225, 229, 238, 0.22);
+        border-radius: 8px;
+        background: rgba(245, 246, 253, 0.08);
+        backdrop-filter: blur(10px);
+      }
+
+      .next__num {
+        width: 28px;
+        height: 28px;
+        display: inline-grid;
+        place-items: center;
+        border-radius: 50%;
+        background: rgba(179, 184, 200, 0.22);
+        color: var(--white);
+        font-size: 13px;
+        font-weight: 900;
+      }
+
+      .next__item strong {
+        display: block;
+        color: var(--white);
+        font-size: 17px;
+      }
+
+      .next__item span {
+        display: block;
+        margin-top: 4px;
+        color: rgba(225, 229, 238, 0.72);
+        font-size: 15px;
+      }
+
+      .actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 34px;
+      }
+
+      .button {
+        min-height: 50px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 13px 18px;
+        border-radius: 8px;
+        border: 1px solid transparent;
+        font-weight: 850;
+        line-height: 1.35;
+      }
+
+      .button--primary {
+        background: var(--mist);
+        color: var(--ink);
+        box-shadow: 0 18px 36px rgba(12, 22, 33, 0.24);
+      }
+
+      .button--quiet {
+        border-color: rgba(225, 229, 238, 0.32);
+        background: rgba(245, 246, 253, 0.08);
+        color: var(--white);
+      }
+
+      .soft-line {
+        max-width: 620px;
+        margin: 28px 0 0;
+        color: rgba(225, 229, 238, 0.7);
+        font-size: 15px;
+      }
+
+      .footer {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        padding: 0 0 28px;
+        color: rgba(225, 229, 238, 0.64);
+        font-size: 13px;
+      }
+
+      @media (max-width: 680px) {
+        .page {
+          background:
+            linear-gradient(0deg, rgba(23, 35, 49, 0.9), rgba(44, 62, 80, 0.62)),
+            url("../assets/home-hero-bg.png") 64% center / cover no-repeat;
+        }
+
+        .nav,
+        .footer,
+        .content {
+          width: min(100% - 32px, 1040px);
+        }
+
+        .nav {
+          padding-top: 18px;
+        }
+
+        .nav a:not(.brand) {
+          display: none;
+        }
+
+        h1 {
+          font-size: clamp(38px, 12vw, 56px);
+        }
+
+        .next__item {
+          grid-template-columns: 28px 1fr;
+          padding: 16px;
+        }
+
+        .button {
+          width: 100%;
+        }
+
+        .footer {
+          display: block;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <nav class="nav" aria-label="主要連結">
+        <a class="brand" href="../" aria-label="回到 glow.in.shadow 首頁">
+          <span class="brand__mark"></span>
+          <span>glow.in.shadow</span>
+        </a>
+        <a href="../resources/">回到自我測驗</a>
+      </nav>
+
+      <section class="content" aria-label="提交成功">
+        <div class="panel">
+          <p class="eyebrow">your guide is on the way</p>
+          <h1>謝謝你，願意走到這裡。</h1>
+          <p class="lead">
+            你的指南正在路上。接下來，先不用急著變好，也不用立刻想清楚所有答案。打開信箱，慢慢讀，讓自己先被接住。
+          </p>
+
+          <div class="next" aria-label="下一步">
+            <div class="next__item">
+              <span class="next__num">1</span>
+              <div>
+                <strong>到信箱查看第一封 email</strong>
+                <span>如果沒有看到，可以檢查垃圾郵件、促銷分類，或稍等幾分鐘。</span>
+              </div>
+            </div>
+            <div class="next__item">
+              <span class="next__num">2</span>
+              <div>
+                <strong>把指南存起來，慢慢讀</strong>
+                <span>你不需要一次讀完。先看見一點點，就已經是開始。</span>
+              </div>
+            </div>
+            <div class="next__item">
+              <span class="next__num">3</span>
+              <div>
+                <strong>有感覺的時候，回來找我</strong>
+                <span>如果哪一句話很像你，也可以回到 IG 跟我分享。</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="actions">
+            <a class="button button--primary" href="../resources/">再做一次 4 題測驗</a>
+            <a class="button button--quiet" href="../">回到首頁</a>
+          </div>
+
+          <p class="soft-line">你不是不夠好，你只是還沒看見自己。</p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>glow.in.shadow</span>
+        <span>擁抱陰影，成為完整的光。</span>
+      </footer>
+    </main>
+  </body>
+</html>
